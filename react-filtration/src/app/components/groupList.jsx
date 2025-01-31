@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+// Group List
 const GroupList = ({
   items,
   valueProperty,
