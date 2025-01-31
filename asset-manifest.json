@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/cyborgmachine/React-Study/tree/gh-pages/static/css/main.d138fb8e.css",
-    "main.js": "/cyborgmachine/React-Study/tree/gh-pages/static/js/main.0b76622c.js",
-    "index.html": "/cyborgmachine/React-Study/tree/gh-pages/index.html",
-    "main.d138fb8e.css.map": "/cyborgmachine/React-Study/tree/gh-pages/static/css/main.d138fb8e.css.map",
-    "main.0b76622c.js.map": "/cyborgmachine/React-Study/tree/gh-pages/static/js/main.0b76622c.js.map"
+    "main.css": "/React-Study/tree/gh-pages/static/css/main.d138fb8e.css",
+    "main.js": "/React-Study/tree/gh-pages/static/js/main.0b76622c.js",
+    "index.html": "/React-Study/tree/gh-pages/index.html",
+    "main.d138fb8e.css.map": "/React-Study/tree/gh-pages/static/css/main.d138fb8e.css.map",
+    "main.0b76622c.js.map": "/React-Study/tree/gh-pages/static/js/main.0b76622c.js.map"
   },
   "entrypoints": [
     "static/css/main.d138fb8e.css",
