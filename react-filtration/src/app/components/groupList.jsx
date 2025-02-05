@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-// Group List
+
 const GroupList = ({
   items,
   valueProperty,
@@ -8,10 +8,8 @@ const GroupList = ({
   onItemSelect,
   selectedItem,
 }) => {
-  console.log(items);
-  console.log(Object.keys(items));
-  return (
-    <>
+  if (!Array.isArray(items)) {
+    return (
       <ul className="list-group">
         {Object.keys(items).map((item) => (
           <li
@@ -27,14 +25,29 @@ const GroupList = ({
           </li>
         ))}
       </ul>
-    </>
+    );
+  }
+  return (
+    <ul className="list-group">
+      {items.map((item) => (
+        <li
+          key={item._id}
+          className={
+            "list-group-item" + (item === selectedItem ? " active" : "")
+          }
+          onClick={() => onItemSelect(item)}
+          role="button"
+        >
+          {item.name}
+        </li>
+      ))}
+    </ul>
   );
 };
 GroupList.defaultProps = {
   valueProperty: "_id",
   contentProperty: "name",
 };
-
 GroupList.propTypes = {
   items: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   valueProperty: PropTypes.string.isRequired,

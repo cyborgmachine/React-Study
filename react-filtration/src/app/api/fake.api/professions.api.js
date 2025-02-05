@@ -1,4 +1,4 @@
-export const professions = {
+export const professionsObject = {
   doctor: { _id: "67rdca3eeb7f6fgeed471818", name: "Doctor" },
   waiter: { _id: "67rdca3eeb7f6fgeed471820", name: "Waiter" },
   physics: { _id: "67rdca3eeb7f6fgeed471814", name: "Physicist" },
@@ -7,9 +7,22 @@ export const professions = {
   cook: { _id: "67rdca3eeb7f6fgeed471829", name: "Cook" },
 };
 
-export const fetchAll = () =>
+export const professions = [
+  { _id: "67rdca3eeb7f6fgeed471818", name: "Doctor" },
+  { _id: "67rdca3eeb7f6fgeed471820", name: "Waiter" },
+  { _id: "67rdca3eeb7f6fgeed471814", name: "Physicist" },
+  { _id: "67rdca3eeb7f6fgeed471822", name: "Engineer" },
+  { _id: "67rdca3eeb7f6fgeed471824", name: "Actor" },
+  { _id: "67rdca3eeb7f6fgeed471829", name: "Cook" },
+];
+
+const fetchAll = () =>
   new Promise((resolve) => {
-    setTimeout(function () {
+    window.setTimeout(function () {
       resolve(professions);
-    }, 2000);
+    }, 1000);
   });
+
+export default {
+  fetchAll,
+};
