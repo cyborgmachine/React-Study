@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/React-Study/react-sorting-7/static/css/main.d138fb8e.css",
-    "main.js": "/React-Study/react-sorting-7/static/js/main.990321b2.js",
-    "index.html": "/React-Study/react-sorting-7/index.html",
-    "main.d138fb8e.css.map": "/React-Study/react-sorting-7/static/css/main.d138fb8e.css.map",
-    "main.990321b2.js.map": "/React-Study/react-sorting-7/static/js/main.990321b2.js.map"
+    "main.css": "/React-Study/static/css/main.d138fb8e.css",
+    "main.js": "/React-Study/static/js/main.990321b2.js",
+    "index.html": "/React-Study/index.html",
+    "main.d138fb8e.css.map": "/React-Study/static/css/main.d138fb8e.css.map",
+    "main.990321b2.js.map": "/React-Study/static/js/main.990321b2.js.map"
   },
   "entrypoints": [
     "static/css/main.d138fb8e.css",
