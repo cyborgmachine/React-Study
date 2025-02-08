@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { paginate } from "../utils/paginate";
 import Pagination from "./pagination";
-import User from "./user";
 import api from "../api";
 import GroupList from "./groupList";
 import SearchStatus from "./searchStatus";
+import UsersTable from "./usersTable";
+import _ from "lodash";
+
 const Users = ({ users: allUsers, ...rest }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [professions, setProfession] = useState();
   const [selectedProf, setSelectedProf] = useState();
+  const [sortBy, setSortBy] = useState({ path: "name", order: "asc" });
 
-  const pageSize = 2;
+  const pageSize = 3;
   useEffect(() => {
     api.professions.fetchAll().then((data) => setProfession(data));
   }, []);
@@ -21,6 +24,10 @@ const Users = ({ users: allUsers, ...rest }) => {
 
   const handleProfessionSelect = (item) => {
     setSelectedProf(item);
+  };
+
+  const handleSort = (item) => {
+    setSortBy(item);
   };
 
   const handlePageChange = (pageIndex) => {
@@ -34,7 +41,9 @@ const Users = ({ users: allUsers, ...rest }) => {
     : allUsers || [];
 
   const count = filteredUsers.length;
-  const usersCrop = paginate(filteredUsers, currentPage, pageSize);
+  const sortedUsers = _.orderBy(filteredUsers, [sortBy.path], [sortBy.order]);
+
+  const usersCrop = paginate(sortedUsers, currentPage, pageSize);
   const clearFilter = () => {
     setSelectedProf();
   };
@@ -57,24 +66,12 @@ const Users = ({ users: allUsers, ...rest }) => {
       <div className="d-flex flex-column">
         <SearchStatus length={count} />
         {count > 0 && (
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Qualities</th>
-                <th scope="col">Profession</th>
-                <th scope="col">Meeting, count</th>
-                <th scope="col">Score</th>
-                <th scope="col">Favorite</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {usersCrop.map((user) => (
-                <User {...rest} {...user} key={user._id} />
-              ))}
-            </tbody>
-          </table>
+          <UsersTable
+            users={usersCrop}
+            onSort={handleSort}
+            selectedSort={sortBy}
+            {...rest}
+          />
         )}
         <div className="d-flex justify-content-center">
           <Pagination
@@ -89,7 +86,7 @@ const Users = ({ users: allUsers, ...rest }) => {
   );
 };
 Users.propTypes = {
-  users: PropTypes.array,
+  users: PropTypes.array.isRequired,
 };
 
 export default Users;

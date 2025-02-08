@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 const BookMark = ({ status, ...rest }) => {
   return (
-    <button {...rest}>
-      <i className={"bi bi-bookmark" + (status ? "-heart-fill" : "")}></i>
+    <button className="btn btn-outline-primary" {...rest}>
+      <i className={"bi bi-heart" + (status ? "-fill" : "")}></i>
     </button>
   );
 };
