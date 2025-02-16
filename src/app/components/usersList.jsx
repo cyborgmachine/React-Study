@@ -8,7 +8,7 @@ import SearchStatus from "./searchStatus";
 import UsersTable from "./usersTable";
 import _ from "lodash";
 
-const Users = () => {
+const UsersList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [professions, setProfession] = useState();
   const [selectedProf, setSelectedProf] = useState();
@@ -108,10 +108,14 @@ const Users = () => {
       </div>
     );
   }
-  return "...loading";
+  return (
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  );
 };
-Users.propTypes = {
+UsersList.propTypes = {
   users: PropTypes.array.isRequired,
 };
 
-export default Users;
+export default UsersList;

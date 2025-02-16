@@ -5,6 +5,7 @@ import Quality from "./quality";
 import Table from "./table";
 import TableHeader from "./tableHeader";
 import TableBody from "./tableBody";
+import { useNavigate } from "react-router-dom";
 
 const UsersTable = ({
   users,
@@ -13,8 +14,27 @@ const UsersTable = ({
   onToggleBookMark,
   onDelete,
 }) => {
+  const navigate = useNavigate();
+  const goToUserPage = (user) => {
+    navigate(`/users/${user._id}`, { state: { user } });
+  };
   const columns = {
-    name: { path: "name", name: "Name" },
+    name: {
+      path: "name",
+      name: "Name",
+      component: (user) => (
+        <button
+          style={{ cursor: "pointer" }}
+          className="btn btn-link"
+          key={user._id}
+          onClick={() => {
+            goToUserPage(user);
+          }}
+        >
+          {user.name}
+        </button>
+      ),
+    },
     qualities: {
       name: "Qualities",
       component: (user) => (

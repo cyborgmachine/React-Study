@@ -1,8 +1,13 @@
 import React from "react";
-import Users from "./components/users";
-
+import NavBar from "./components/navBar";
+import NavbarRoutes from "./routes/navbarRoutes";
 function App() {
-  return <Users />;
+  return (
+    <>
+      <NavBar />
+      <NavbarRoutes />
+    </>
+  );
 }
 
 export default App;
