@@ -1,4 +1,4 @@
-import "./styles/navbarmobile.css";
+import "../styles/navbarmobile.css";
 import { Link } from "react-router-dom";
 const NavBarMobile = () => {
   return (
@@ -32,29 +32,6 @@ const NavBarMobile = () => {
           </ul>
         </div>
       </div>
-      {/* 
-      <input type="checkbox" id="check" />
-      <label className="checkbtn">
-        <i className="fas fa-bars"></i>
-      </label>
-      <label className="logo">Menu</label>
-      <ul>
-        <li>
-          <Link className="nav-link active fs-5 text-primary" to="/">
-            Main
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link fs-5 text-primary" to="/login">
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link fs-5 text-primary" to="/users">
-            Users
-          </Link>
-        </li>
-      </ul> */}
     </>
   );
 };

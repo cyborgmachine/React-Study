@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import Quality from "../components/quality";
+import Quality from "../components/users/quality";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import React from "react";

@@ -1,9 +1,9 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import Users from "../pages/users";
-import UsersList from "../components/usersList";
+import UsersList from "../components/users/usersList";
 import Login from "../pages/login";
 import MainPage from "../pages/mainPage";
-import NotFound from "../components/notFound";
+import NotFound from "../components/404/notFound";
 const NavbarRoutes = () => {
   return (
     <Routes>

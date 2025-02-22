@@ -49,20 +49,6 @@ const TableHeader = ({ onSort, selectedSort, columns }) => {
             <CaretClass columnpath={columns[column].path} />
           </th>
         ))}
-
-        {/* <th scope="col">Qualities</th>
-        <th onClick={() => handleSort("profession.name")} scope="col">
-          Profession
-        </th>
-        <th onClick={() => handleSort("completedMeetings")} scope="col">
-          Meeting, count
-        </th>
-        <th onClick={() => handleSort("rate")} scope="col">
-          Score
-        </th>
-        <th onClick={() => handleSort("bookmark")} scope="col">
-          Favorite
-        </th> */}
       </tr>
     </thead>
   );
