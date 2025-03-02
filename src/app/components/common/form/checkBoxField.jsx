@@ -14,7 +14,6 @@ const CheckBoxField = ({ name, value, onChange, children, error }) => {
       ? "form-check-input is-invalid"
       : "form-check-input";
   };
-  console.log("Error license", error);
   return (
     <div className="form-check mb-4">
       <input

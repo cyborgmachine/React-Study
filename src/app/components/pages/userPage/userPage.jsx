@@ -10,10 +10,9 @@ const UserPage = ({ userId }) => {
   const location = useLocation();
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const gotoAllUsersPage = () => {
-    navigate(`/users`);
+  const gotoEditUser = (user) => {
+    navigate(`/users/${user._id}/edit`, { state: { user } });
   };
-
   // Get user data
   useEffect(() => {
     const fetchUser = async () => {
@@ -22,12 +21,19 @@ const UserPage = ({ userId }) => {
         if (location.state && location.state.user) {
           setUser(location.state.user);
         } else {
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const foundUser = users.find((user) => user._id === userId);
           // Get server response for actual data
-          const data = await API.users.getById(userId);
-          if (data) {
-            setUser(data);
+          if (foundUser) {
+            setUser(foundUser);
           } else {
-            navigate("/404");
+            const data = await API.users.getById(userId);
+
+            if (data) {
+              setUser(data);
+            } else {
+              navigate("/404");
+            }
           }
         }
       } catch (error) {
@@ -46,6 +52,9 @@ const UserPage = ({ userId }) => {
       </div>
     );
   }
+  console.log("Profession Name", user.profession);
+  console.log("User Qualities", user.qualities);
+  console.table(user);
 
   return (
     <>
@@ -80,14 +89,23 @@ const UserPage = ({ userId }) => {
           <li className="list-group-item">
             <h5>Completed meetings: {user.completedMeetings}</h5>
           </li>
+          <li className="list-group-item">
+            <h5>Gender: {user.sex}</h5>
+          </li>
+          <li className="list-group-item">
+            <h5>Email: {user.email}</h5>
+          </li>
         </ul>
         <div className="card-body d-flex justify-content-center">
           <button
-            onClick={gotoAllUsersPage}
+            userid={user._id}
+            onClick={() => {
+              gotoEditUser(user);
+            }}
             type="button"
             className="btn btn-secondary"
           >
-            All Users
+            Edit User
           </button>
         </div>
       </div>

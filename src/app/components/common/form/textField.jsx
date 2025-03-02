@@ -10,7 +10,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
     onChange({ name: target.name, value: target.value });
     setTouched(true);
   };
-  console.log(touched);
+
   const getInputClasses = () => {
     return !touched
       ? "form-control"
